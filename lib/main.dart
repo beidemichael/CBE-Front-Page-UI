@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F0F6),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFFF1F0F6),
         foregroundColor: Colors.purple,
@@ -59,89 +59,112 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: Container(),
       body: Stack(
         children: [
-          Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8),
-                child: Container(
-                  width: 400,
-                  height: 200,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 231, 156, 244),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(255, 245, 195, 245),
-                        offset: Offset(7, 13),
-                        blurRadius: 8,
-                        spreadRadius: 3,
-                      ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 20,
-                        left: 10,
-                        child: Image.asset(
-                          width: 60,
-                          height: 60,
-                          'assets/Logo.png',
-                        ),
-                      ),
-                      Positioned(top: 20, left: 75, child: TitleText()),
-                      Positioned(
-                          top: 80, left: 0, right: 0, child: BalanceText()),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 13),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomContainer(
-                        FontAwesomeIcons.moneyBillTransfer, 'Transfer'),
-                    CustomContainer(FontAwesomeIcons.mobile, 'Top Up'),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 13),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomContainer(
-                        FontAwesomeIcons.screwdriverWrench, 'Utilities'),
-                    CustomContainer(FontAwesomeIcons.solidFolderOpen, 'Other'),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 13),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomContainer(FontAwesomeIcons.folderOpen, 'Events'),
-                  ],
-                ),
-              ),
-            ],
-          ),
           Positioned(bottom: 20, left: 0, right: 0, child: BottomBar()),
+          Positioned(
+            top: 0,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height - 200,
+              decoration: const BoxDecoration(
+                color: const Color(0xFFF1F0F6),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFFCFCDDF),
+                    offset: Offset(4, 4),
+                    blurRadius: 3,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 8),
+                    child: Container(
+                      width: 400,
+                      height: 200,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 231, 156, 244),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 245, 195, 245),
+                            offset: Offset(7, 13),
+                            blurRadius: 8,
+                            spreadRadius: 3,
+                          ),
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 20,
+                            left: 10,
+                            child: Image.asset(
+                              width: 60,
+                              height: 60,
+                              'assets/Logo.png',
+                            ),
+                          ),
+                          Positioned(top: 20, left: 75, child: TitleText()),
+                          Positioned(
+                              top: 80, left: 0, right: 0, child: BalanceText()),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 13),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomContainer(
+                            FontAwesomeIcons.moneyBillTransfer, 'Transfer'),
+                        CustomContainer(FontAwesomeIcons.mobile, 'Top Up'),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 13),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomContainer(
+                            FontAwesomeIcons.screwdriverWrench, 'Utilities'),
+                        CustomContainer(
+                            FontAwesomeIcons.solidFolderOpen, 'Other'),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 13),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CustomContainer(FontAwesomeIcons.folderOpen, 'Events'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -150,23 +173,38 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget BottomBar() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Container(
-        width: 500,
-        height: 70,
-       decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 231, 156, 244),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(255, 245, 195, 245),
-                        offset: Offset(7, 13),
-                        blurRadius: 8,
-                        spreadRadius: 3,
-                      ),
-                    ],
-                  ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Container(
+            width: 60,
+            height: 60,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 231, 156, 244),
+              borderRadius: BorderRadius.all(
+                Radius.circular(50),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromARGB(255, 245, 195, 245),
+                  offset: Offset(5, 10),
+                  blurRadius: 8,
+                  spreadRadius: 3,
+                ),
+              ],
+            ),
+            child: Icon(
+              FontAwesomeIcons.grip,
+              color: Colors.white,
+            ),
+          ),
+          Icon(FontAwesomeIcons.sackDollar,
+              color: Color.fromARGB(221, 128, 92, 128)),
+          Icon(FontAwesomeIcons.buildingColumns,
+              color: Color.fromARGB(221, 128, 92, 128)),
+          Icon(FontAwesomeIcons.clockRotateLeft,
+              color: Color.fromARGB(221, 128, 92, 128)),
+        ],
       ),
     );
   }
